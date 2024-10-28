@@ -1,6 +1,7 @@
 package com.example.GestorTienda.domain.service;
 
 import com.example.GestorTienda.domain.model.Producto;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
