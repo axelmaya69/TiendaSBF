@@ -4,6 +4,8 @@ import com.example.GestorTienda.domain.model.Producto;
 import com.example.GestorTienda.domain.repository.IProducto;
 import com.example.GestorTienda.domain.service.IProductoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
@@ -33,10 +35,12 @@ public class ProductoServiceImplementation implements IProductoService {
     }
 
     @Override
-    public Producto actualizarProducto(int id, Producto producto) {
+    public Producto actualizarProducto(@PathVariable int id, @RequestBody Producto producto) {
+        Producto updateProducto = prodRep.findById(id).get();
         if(prodRep.existsById(id)){
-            producto.setId(id);
-            return prodRep.save(producto);
+            updateProducto.setNombre(producto.getNombre());
+            updateProducto.setPrecio(producto.getPrecio());
+            return prodRep.save(updateProducto);
     }
         return null;
     }
