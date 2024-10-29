@@ -7,7 +7,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class GestorTiendaApplication {
 
 	public static void main(String[] args) {
+
+
 		SpringApplication.run(GestorTiendaApplication.class, args);
+
+
 	}
 
 }
