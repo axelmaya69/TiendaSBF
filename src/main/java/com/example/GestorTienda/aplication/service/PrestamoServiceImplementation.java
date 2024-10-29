@@ -3,10 +3,12 @@ package com.example.GestorTienda.aplication.service;
 import com.example.GestorTienda.domain.model.Prestamo;
 import com.example.GestorTienda.domain.repository.IPrestamo;
 import com.example.GestorTienda.domain.service.IPrestamoService;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.stereotype.Service;
+
 
 import java.util.List;
 
+@Service
 public class PrestamoServiceImplementation implements IPrestamoService {
 
     private final IPrestamo presRep;
@@ -32,7 +34,7 @@ public class PrestamoServiceImplementation implements IPrestamoService {
     }
 
     @Override
-    public Prestamo actualizarPrestamo(int id,@PathVariable Prestamo prestamo) {
+    public Prestamo actualizarPrestamo(int id, Prestamo prestamo) {
         Prestamo updatePrestamo = presRep.findById(id).get();
         if (presRep.existsById(id)){
             updatePrestamo.setFecha(prestamo.getFecha());
