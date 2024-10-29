@@ -4,11 +4,14 @@ import com.example.GestorTienda.domain.model.Producto;
 import com.example.GestorTienda.domain.repository.IProducto;
 import com.example.GestorTienda.domain.service.IProductoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
+import java.util.Optional;
 
+@Service
 public class ProductoServiceImplementation implements IProductoService {
 
     private final IProducto prodRep;
@@ -35,7 +38,7 @@ public class ProductoServiceImplementation implements IProductoService {
     }
 
     @Override
-    public Producto actualizarProducto(@PathVariable int id, @RequestBody Producto producto) {
+    public Producto actualizarProducto(@PathVariable int id, Producto producto) {
         Producto updateProducto = prodRep.findById(id).get();
         if(prodRep.existsById(id)){
             updateProducto.setNombre(producto.getNombre());
