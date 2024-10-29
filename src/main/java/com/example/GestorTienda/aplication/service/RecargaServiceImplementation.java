@@ -3,10 +3,12 @@ package com.example.GestorTienda.aplication.service;
 import com.example.GestorTienda.domain.model.Recarga;
 import com.example.GestorTienda.domain.repository.IRecarga;
 import com.example.GestorTienda.domain.service.IRecargaService;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
+@Service
 public class RecargaServiceImplementation implements IRecargaService {
 
     private final IRecarga recRep;
@@ -33,7 +35,7 @@ public class RecargaServiceImplementation implements IRecargaService {
     }
 
     @Override
-    public Recarga actualizarRecarga(int id,@RequestBody Recarga recarga) {
+    public Recarga actualizarRecarga(int id, Recarga recarga) {
         Recarga updateRecarga = recRep.findById(id).get();
         if(recRep.existsById(id)){
             updateRecarga.setFecha(recarga.getFecha());
