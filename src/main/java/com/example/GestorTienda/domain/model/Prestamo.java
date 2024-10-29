@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -11,6 +12,8 @@ public class Prestamo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Getter
+    @Setter
     private int id;
 
     @Getter
@@ -25,5 +28,5 @@ public class Prestamo {
     @Temporal(TemporalType.DATE)
     @Getter
     @Setter
-    private Date fecha;
+    private LocalDate fecha;
 }
