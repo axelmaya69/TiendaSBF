@@ -14,6 +14,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/fiado")
+@CrossOrigin(origins = "http://localhost:3000")
 public class PrestamoController {
 
     private final IPrestamoService prestamoService;
