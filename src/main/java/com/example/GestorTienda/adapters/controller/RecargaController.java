@@ -13,6 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/recargas")
+@CrossOrigin(origins = "http://localhost:3000")
 public class RecargaController {
 
     private final IRecargaService recargaService;
