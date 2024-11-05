@@ -32,6 +32,7 @@ public class ProductoServiceImplementation implements IProductoService {
         return prodRep.findById(id).orElse(null);
     }
 
+
     @Override
     public List<Producto> obtenerProductos() {
         return prodRep.findAll();
