@@ -5,7 +5,6 @@ import com.example.GestorTienda.domain.service.IProductoService;
 import org.springframework.dao.DataAccessException;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,24 +17,31 @@ public class ProductoController {
 
     private final IProductoService productoService;
 
+
     public ProductoController(IProductoService productoService) {
         this.productoService = productoService;
+
     }
 
     @GetMapping("/obtener")
-    public ResponseEntity<?> obtenerTodos(){
-    try {
-        List<Producto> productos = productoService.obtenerProductos();
+    public ResponseEntity<?> obtenerTodos() {
+        try {
+            List<Producto> productos = productoService.obtenerProductos();
+            return ResponseEntity.ok(productos);
+        } catch (DataAccessException e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Error al acceder a la base de datos, intente más tarde.");
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Error, intentelo más tarde");
+        }
+    }
+    @GetMapping("/buscarPorNombre")
+    public ResponseEntity<List<Producto>> obtenerPorNombre(@RequestParam String nombre) {
+        List<Producto> productos = productoService.obtenerPorNombre(nombre);
         return ResponseEntity.ok(productos);
-    }catch (DataAccessException e) {
-        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                .body("Error al acceder a la base de datos, intente más tarde.");
     }
-    catch (Exception e){
-        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                .body("Error, intentelo más tarde");
-    }
-    }
+
 
     @GetMapping("/obtener/{id}")
     public ResponseEntity<?> obtenerPorId(@PathVariable int id){
