@@ -9,7 +9,7 @@ public interface IProductoService {
 
     Producto crearProducto(Producto producto);
     Producto obtenerProducto(int id);
-    Producto obtenerPorNombre(String nombre);
+    List<Producto> obtenerPorNombre(String nombre);
     List<Producto> obtenerProductos();
     Producto actualizarProducto(int id, Producto producto);
     void eliminarProducto(int id);

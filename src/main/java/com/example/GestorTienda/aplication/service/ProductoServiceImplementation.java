@@ -32,6 +32,11 @@ public class ProductoServiceImplementation implements IProductoService {
         return prodRep.findById(id).orElse(null);
     }
 
+    @Override
+    public List<Producto> obtenerPorNombre(String nombre) {
+    return prodRep.findByNombreContaining(nombre);
+    }
+
 
     @Override
     public List<Producto> obtenerProductos() {
