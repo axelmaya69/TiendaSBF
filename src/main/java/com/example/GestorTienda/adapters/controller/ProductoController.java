@@ -37,10 +37,16 @@ public class ProductoController {
         }
     }
     @GetMapping("/buscarPorNombre")
-    public ResponseEntity<List<Producto>> obtenerPorNombre(@RequestParam String nombre) {
-        List<Producto> productos = productoService.obtenerPorNombre(nombre);
-        return ResponseEntity.ok(productos);
+    public ResponseEntity<?> obtenerPorNombre(@RequestParam String nombre) {
+        try {
+            List<Producto> productos = productoService.obtenerPorNombre(nombre);
+            return ResponseEntity.ok(productos);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Error, inténtelo más tarde.");
+        }
     }
+
 
 
     @GetMapping("/obtener/{id}")
