@@ -1,5 +1,6 @@
 package com.example.GestorTienda.aplication.service;
 
+import com.example.GestorTienda.domain.model.Producto;
 import com.example.GestorTienda.domain.model.Recarga;
 import com.example.GestorTienda.domain.repository.IRecarga;
 import com.example.GestorTienda.domain.service.IRecargaService;
@@ -23,6 +24,12 @@ public class RecargaServiceImplementation implements IRecargaService {
         return recRep.save(recarga);
 
     }
+
+    @Override
+    public List<Recarga> obtenerPorNombre(String nombre) {
+        return recRep.findByNombreContaining(nombre);
+    }
+
 
     @Override
     public Recarga obtenerRecarga(int id) {
