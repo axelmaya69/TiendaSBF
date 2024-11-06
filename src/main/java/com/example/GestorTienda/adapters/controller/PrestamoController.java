@@ -43,8 +43,8 @@ public class PrestamoController {
     @GetMapping("/buscarPorNombre")
     public ResponseEntity<?> obtenerPorNombre(@RequestParam String nombre) {
         try {
-            List<Producto> productos = prestamoService.obtenerPorNombre(nombre);
-            return ResponseEntity.ok(productos);
+            List<Prestamo> prestamos = prestamoService.obtenerPorNombre(nombre);
+            return ResponseEntity.ok(prestamos);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body("Error, inténtelo más tarde.");
