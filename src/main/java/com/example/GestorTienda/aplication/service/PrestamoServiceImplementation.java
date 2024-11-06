@@ -1,6 +1,7 @@
 package com.example.GestorTienda.aplication.service;
 
 import com.example.GestorTienda.domain.model.Prestamo;
+import com.example.GestorTienda.domain.model.Producto;
 import com.example.GestorTienda.domain.repository.IPrestamo;
 import com.example.GestorTienda.domain.service.IPrestamoService;
 import org.springframework.stereotype.Service;
@@ -22,6 +23,12 @@ public class PrestamoServiceImplementation implements IPrestamoService {
     public Prestamo crearPrestamo(Prestamo prestamo) {
         return presRep.save(prestamo);
     }
+
+    @Override
+    public List<Prestamo> obtenerPorNombre(String nombre) {
+        return presRep.findByNombreContaining(nombre);
+    }
+
 
     @Override
     public Prestamo obtenerPrestamo(int id) {
