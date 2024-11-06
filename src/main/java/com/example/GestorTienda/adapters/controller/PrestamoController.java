@@ -2,6 +2,7 @@ package com.example.GestorTienda.adapters.controller;
 
 
 import com.example.GestorTienda.domain.model.Prestamo;
+import com.example.GestorTienda.domain.model.Producto;
 import com.example.GestorTienda.domain.service.IPrestamoService;
 import org.springframework.dao.DataAccessException;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -38,6 +39,21 @@ public class PrestamoController {
                     .body("Error, intentelo más tarde");
         }
     }
+
+    @GetMapping("/buscarPorNombre")
+    public ResponseEntity<?> obtenerPorNombre(@RequestParam String nombre) {
+        try {
+            List<Producto> productos = prestamoService.obtenerPorNombre(nombre);
+            return ResponseEntity.ok(productos);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Error, inténtelo más tarde.");
+        }
+    }
+
+
+
+
 
     @GetMapping("/obtener/{id}")
     public ResponseEntity<?> obtenerPorId(@PathVariable int id){
