@@ -1,5 +1,6 @@
 package com.example.GestorTienda.adapters.controller;
 
+import com.example.GestorTienda.domain.model.Producto;
 import com.example.GestorTienda.domain.model.Recarga;
 import com.example.GestorTienda.domain.service.IRecargaService;
 import org.springframework.dao.DataAccessException;
@@ -36,6 +37,20 @@ public class RecargaController {
                 .body("Error, inténtelo más tarde.");
     }
     }
+    @GetMapping("/buscarPorNombre")
+    public ResponseEntity<?> obtenerPorNombre(@RequestParam String nombre) {
+        try {
+            List<Recarga> recargas = recargaService.obtenerPorNombre(nombre);
+            return ResponseEntity.ok(recargas);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Error, inténtelo más tarde.");
+        }
+    }
+
+
+
+
 
     @GetMapping("/obtener/{id}")
     public ResponseEntity<?> obtenerRecarga(@PathVariable int id){
