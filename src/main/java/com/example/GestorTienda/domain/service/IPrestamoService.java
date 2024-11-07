@@ -10,7 +10,7 @@ public interface IPrestamoService {
 
     Prestamo crearPrestamo(Prestamo prestamo);
     Prestamo obtenerPrestamo(int id);
-    List<Prestamo> obtenerPorNombre(String nombre);
+    List<Prestamo> obtenerPorNombre(String persona);
     List<Prestamo> obtenerPrestamos();
     Prestamo actualizarPrestamo(int id, Prestamo prestamo);
     void eliminarPrestamo(int id);
