@@ -38,9 +38,9 @@ public class RecargaController {
     }
     }
     @GetMapping("/buscarPorNombre")
-    public ResponseEntity<?> obtenerPorNombre(@RequestParam String nombre) {
+    public ResponseEntity<?> obtenerPorNombre(@RequestParam String persona) {
         try {
-            List<Recarga> recargas = recargaService.obtenerPorNombre(nombre);
+            List<Recarga> recargas = recargaService.obtenerPorNombre(persona);
             return ResponseEntity.ok(recargas);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)

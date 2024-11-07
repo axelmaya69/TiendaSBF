@@ -26,7 +26,7 @@ public class PrestamoServiceImplementation implements IPrestamoService {
 
     @Override
     public List<Prestamo> obtenerPorNombre(String persona) {
-        return presRep.findByNombreContaining(persona);
+        return presRep.findByPersonaContaining(persona);
     }
 
 
