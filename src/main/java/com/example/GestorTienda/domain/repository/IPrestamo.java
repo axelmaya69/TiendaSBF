@@ -9,5 +9,5 @@ import java.util.List;
 
 
 public interface IPrestamo extends JpaRepository<Prestamo,Integer> {
-    List<Prestamo> findByNombreContaining(String persona);
+    List<Prestamo> findByPersonaContaining(String persona);
 }
