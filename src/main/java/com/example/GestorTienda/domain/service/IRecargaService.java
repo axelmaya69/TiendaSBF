@@ -10,7 +10,7 @@ public interface IRecargaService {
     Recarga crearRecarga(Recarga recarga);
     Recarga obtenerRecarga(int id);
     List<Recarga> obtenerRecargas();
-    List<Recarga> obtenerPorNombre(String nombre);
+    List<Recarga> obtenerPorNombre(String persona);
     Recarga actualizarRecarga(int id,Recarga recarga);
     void eliminarRecarga(int id);
 

@@ -26,8 +26,8 @@ public class RecargaServiceImplementation implements IRecargaService {
     }
 
     @Override
-    public List<Recarga> obtenerPorNombre(String nombre) {
-        return recRep.findByNombreContaining(nombre);
+    public List<Recarga> obtenerPorNombre(String persona) {
+        return recRep.findByPersonaContaining(persona);
     }
 
 
