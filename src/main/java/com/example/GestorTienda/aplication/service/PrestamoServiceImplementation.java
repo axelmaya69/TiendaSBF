@@ -1,7 +1,6 @@
 package com.example.GestorTienda.aplication.service;
 
 import com.example.GestorTienda.domain.model.Prestamo;
-import com.example.GestorTienda.domain.model.Producto;
 import com.example.GestorTienda.domain.repository.IPrestamo;
 import com.example.GestorTienda.domain.service.IPrestamoService;
 import org.springframework.stereotype.Service;
