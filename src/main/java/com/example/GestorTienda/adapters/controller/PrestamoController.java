@@ -2,7 +2,6 @@ package com.example.GestorTienda.adapters.controller;
 
 
 import com.example.GestorTienda.domain.model.Prestamo;
-import com.example.GestorTienda.domain.model.Producto;
 import com.example.GestorTienda.domain.service.IPrestamoService;
 import org.springframework.dao.DataAccessException;
 import org.springframework.dao.DataIntegrityViolationException;
