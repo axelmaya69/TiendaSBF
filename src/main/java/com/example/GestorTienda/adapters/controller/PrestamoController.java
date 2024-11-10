@@ -100,9 +100,5 @@ public class PrestamoController {
                 "inténtelo más tarde.");
     }
     }
-
-
-
-
-
+ 
 }
