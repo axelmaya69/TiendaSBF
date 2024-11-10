@@ -1,6 +1,5 @@
 package com.example.GestorTienda.adapters.controller;
 
-import com.example.GestorTienda.domain.model.Producto
 import com.example.GestorTienda.domain.model.Recarga;
 import com.example.GestorTienda.domain.service.IRecargaService;
 import org.springframework.dao.DataAccessException;
